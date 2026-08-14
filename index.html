@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Zehak 💗</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;min-height:100%;font-family:'Poppins',sans-serif}
+body{overflow:hidden;background:#fff0f7;color:#4d2940}
+button{font:inherit;border:0;cursor:pointer}
+.screen{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:24px;opacity:0;visibility:hidden;transform:scale(1.03);
+  transition:opacity .55s ease,transform .55s ease,visibility .55s;
+  overflow:auto;
+}
+.screen.active{opacity:1;visibility:visible;transform:scale(1)}
+.card{
+  width:min(720px,100%);text-align:center;position:relative;z-index:3;
+  padding:clamp(28px,6vw,64px) clamp(20px,6vw,55px);
+  border:1px solid rgba(255,255,255,.75);border-radius:35px;
+  background:rgba(255,255,255,.58);backdrop-filter:blur(16px);
+  box-shadow:0 25px 80px rgba(211,76,137,.18);
+}
+.bg{background:radial-gradient(circle at 20% 20%,#fff 0 5%,transparent 6%),linear-gradient(135deg,#ffe7f2,#f6eaff 52%,#fff3dc)}
+h1,h2{font-family:'Baloo 2',sans-serif;line-height:.95}
+h1{font-size:clamp(3.2rem,12vw,7.5rem);color:#ef4d91;text-shadow:4px 5px 0 #ffd1e3}
+h2{font-size:clamp(2rem,7vw,4.2rem);color:#c83e78}
+p{font-size:clamp(1rem,2.5vw,1.25rem);line-height:1.7}
+.small{font-size:.9rem;opacity:.75}
+.btn{
+  margin-top:28px;padding:14px 28px;border-radius:999px;color:white;
+  background:linear-gradient(135deg,#ef4d91,#9c55d9);
+  box-shadow:0 12px 25px rgba(193,66,139,.25);
+  transition:.25s transform,.25s box-shadow;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 16px 30px rgba(193,66,139,.35)}
+.btn:active{transform:scale(.96)}
+.emoji{font-size:clamp(3rem,10vw,6rem);margin-bottom:15px;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(3deg)}}
+
+.floaters{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.floater{position:absolute;animation:floatUp linear infinite;opacity:.65}
+@keyframes floatUp{from{transform:translateY(110vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
+
+.fake{
+  margin:25px auto 0;padding:18px;border-radius:20px;background:#fff7d9;
+  border:2px dashed #f2b36a;font-weight:600;
+}
+.progress{margin:22px auto 0;width:min(420px,90%);height:8px;background:#ead9e2;border-radius:10px;overflow:hidden}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff5b9d,#a55be8);transition:width .8s}
+
+.countdown{font-family:'Baloo 2';font-size:clamp(7rem,30vw,14rem);font-weight:800;color:#ff5a9d;text-shadow:0 8px 0 #ffd0e3;animation:pulse .9s infinite}
+@keyframes pulse{50%{transform:scale(1.08)}}
+.flash{animation:flash .7s ease}
+@keyframes flash{50%{background:#fff}}
+
+.reveal{background:radial-gradient(circle at center,#fff8fb,#ffdceb 55%,#e9d7ff)}
+.cake{font-size:clamp(4rem,14vw,8rem);animation:cakePop 1s cubic-bezier(.17,.89,.32,1.28)}
+@keyframes cakePop{0%{transform:scale(0) rotate(-15deg)}70%{transform:scale(1.15) rotate(5deg)}100%{transform:scale(1)}}
+.name{font-size:clamp(3rem,11vw,7rem);color:#f14f91}
+.tag{display:inline-block;margin-top:12px;padding:9px 18px;border-radius:999px;background:#fff;font-weight:700;color:#8f4d9d}
+
+.message{
+  margin-top:25px;background:rgba(255,255,255,.78);padding:24px;border-radius:24px;
+  text-align:left;box-shadow:0 10px 30px rgba(190,72,132,.1)
+}
+.message strong{color:#dc467f}
+.stickers{font-size:2rem;margin-top:20px;word-spacing:10px}
+.envelope{font-size:clamp(4rem,13vw,7rem);animation:bob 2s infinite}
+.final-note{font-family:'Baloo 2';font-size:clamp(1.6rem,5vw,2.5rem);color:#ba4278}
+
+.confetti{position:fixed;top:-20px;width:10px;height:18px;z-index:20;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+
+.music{
+  position:fixed;right:18px;bottom:18px;z-index:50;
+  width:48px;height:48px;border-radius:50%;background:white;color:#df4b8a;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);font-size:1.2rem;
+}
+.footer{margin-top:24px;font-size:.8rem;opacity:.55}
+
+@media(max-width:600px){
+  .screen{padding:14px}
+  .card{border-radius:27px;padding:34px 18px}
+  .btn{width:100%;max-width:340px}
+  .message{text-align:center}
+}
+@media(min-width:900px){
+  .card{min-height:500px;display:flex;flex-direction:column;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<div class="floaters" id="floaters"></div>
+
+<section class="screen bg active" id="s1">
+  <div class="card">
+    <div class="emoji">😍</div>
+    <h2>Heyyy...</h2>
+    <h1 style="font-size:clamp(3.8rem,14vw,8rem)">Zehak</h1>
+    <p>I have something for you...🌹</p>
+    <p class="small">But first, you have to promise you won't judge me 😭</p>
+    <button class="btn" onclick="go(2)">I'm curious 👀</button>
+  </div>
+</section>
+
+<section class="screen bg" id="s2">
+  <div class="card">
+    <div class="emoji">🧸💗</div>
+    <h2>I made something...</h2>
+    <p>for <strong>YOU</strong> specifically.</p>
+    <div class="fake">Buttt... I'm not sure you're emotionally prepared for this. 😭</div>
+    <button class="btn" onclick="go(3)">I'm READY 😤</button>
+  </div>
+</section>
+
+<section class="screen bg" id="s3">
+  <div class="card">
+    <div class="emoji">🎁</div>
+    <h2>CONGRATULATIONS! 🥳</h2>
+    <p>You have officially been selected for...</p>
+    <div class="fake" style="font-size:clamp(1.5rem,5vw,2.6rem);color:#ef4d91">
+      ABSOLUTELY NOTHING. 😂
+    </div>
+    <p style="margin-top:18px">HAHAHAHA okay okay... WAIT. 👀</p>
+    <button class="btn" onclick="go(4)">Okay, seriously now 😭</button>
+  </div>
+</section>
+
+<section class="screen" id="s4" style="background:#160b18;color:white">
+  <div class="card" style="background:transparent;border:0;box-shadow:none">
+    <p>Shhhh... suspense is part of the surprise 🤫</p>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="countdown" id="count">3</div>
+    <p style="color:#ff86ba;font-weight:700">GET READY ZEHAAAK...</p>
+  </div>
+</section>
+
+<section class="screen reveal" id="s5">
+  <div class="card">
+    <div class="cake">🎂</div>
+    <p style="font-weight:700">OKAYYYYY HERE WE GOOOOO...</p>
+    <h1>HAPPY<br><span class="name">BIRTHDAY</span></h1>
+    <h1 style="font-size:clamp(3rem,11vw,7rem)">ZEHAK! 🥳</h1>
+    <div class="tag">✨ The main character today ✨</div>
+    <p style="margin-top:22px">May your day be as cute, chaotic and wonderful as you are. 💗</p>
+    <div class="stickers">🌹 🎀 🧸 💕 🎈 ✨ 🥳</div>
+    <button class="btn" onclick="go(6)">Okay but there's MORE 👀</button>
+  </div>
+</section>
+
+<section class="screen bg" id="s6">
+  <div class="card">
+    <div class="emoji">😎🎂</div>
+    <h2>Important Birthday Announcement</h2>
+    <div class="message">
+      <p><strong>Breaking News:</strong> Zehak has successfully unlocked another year of existence. 🎉</p>
+      <p style="margin-top:12px">Side effects may include: more memories, more laughter, random chaos, and absolutely no additional wisdom. 💀</p>
+      <p style="margin-top:12px"><strong>But honestly...</strong> stay exactly the way you are. You're pretty awesome. 🫶</p>
+    </div>
+    <button class="btn" onclick="go(7)">One last thing... 👀</button>
+  </div>
+</section>
+
+<section class="screen bg" id="s7">
+  <div class="card">
+    <div class="envelope">💌</div>
+    <h2>One last little surprise...</h2>
+    <p>Because underneath all the jokes, this one is actually from the heart. 🥹</p>
+    <button class="btn" onclick="go(8)">Open it 💗</button>
+  </div>
+</section>
+
+<section class="screen bg" id="s8">
+  <div class="card">
+    <div class="emoji">🧸💗</div>
+    <p class="final-note">Happy Birthday, Zehak! 💕</p>
+    <div class="message">
+      <p>I hope this year brings you <strong>so much happiness</strong>, beautiful memories, endless laughter, and all the little things that make you smile. ✨</p>
+      <p style="margin-top:15px">You deserve good things, good people, and plenty of reasons to be ridiculously happy. 🥹💗</p>
+      <p style="margin-top:15px">So enjoy your special day to the fullest, eat the cake, take too many pictures, laugh way too loudly, and remember...</p>
+      <p style="margin-top:15px;text-align:center;font-size:1.2rem"><strong>today, you're officially allowed to be extra. 🎀😌</strong></p>
+    </div>
+    <div class="stickers">🎂 🎈 💕 ✨ 🥳 🧸</div>
+    <p class="footer">Made with lots of love, just for Zehak</p>
+    <p class="footer">I Love You Zehak 💝</p>
+    <button class="btn" onclick="location.reload()">Replay the surprise 🔄</button>
+  </div>
+</section>
+
+<button class="music" id="musicBtn" onclick="toggleMusic()" aria-label="Toggle music">♫</button>
+<audio id="music" loop preload="auto" src="Birthday.mp3"></audio>
+
+<script>
+const screens=[...document.querySelectorAll('.screen')];
+let current=1;
+const floaters=document.getElementById('floaters');
+const symbols=['♡','♥','✦','✧','💛','🩵','✨','🌹','🩷','🖤','🎈','🌻','⭐'];
+
+for(let i=0;i<28;i++){
+  const el=document.createElement('span');
+  el.className='floater';
+  el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+  el.style.left=Math.random()*100+'%';
+  el.style.fontSize=(14+Math.random()*25)+'px';
+  el.style.animationDuration=(7+Math.random()*10)+'s';
+  el.style.animationDelay=(-Math.random()*15)+'s';
+  floaters.appendChild(el);
+}
+
+function go(n){
+  // The first button click gives the browser a user interaction,
+  // allowing the birthday song to start for the surprise.
+  startMusic();
+
+  screens[current-1].classList.remove('active');
+  current=n;
+  screens[current-1].classList.add('active');
+  if(n===4) startCountdown();
+  if(n===5) confetti(150);
+}
+
+function startCountdown(){
+  const count=document.getElementById('count');
+  const bar=document.getElementById('bar');
+  let n=3;
+  count.textContent=n;
+  bar.style.width='0%';
+  const timer=setInterval(()=>{
+    n--;
+    if(n>0){
+      count.textContent=n;
+      bar.style.width=((3-n)/3*100)+'%';
+    }else{
+      clearInterval(timer);
+      bar.style.width='100%';
+      count.textContent='🎀';
+      document.body.classList.add('flash');
+      setTimeout(()=>document.body.classList.remove('flash'),500);
+      setTimeout(()=>go(5),700);
+    }
+  },900);
+}
+
+function confetti(amount){
+  for(let i=0;i<amount;i++){
+    const c=document.createElement('span');
+    c.className='confetti';
+    c.textContent=['💗','✨','🎉','🎀','💕','⭐','🌸'][Math.floor(Math.random()*7)];
+    c.style.left=Math.random()*100+'vw';
+    c.style.fontSize=(12+Math.random()*20)+'px';
+    c.style.animationDuration=(2+Math.random()*3)+'s';
+    c.style.animationDelay=Math.random()*.8+'s';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+
+/* Put Birthday.mp3 in the same folder as this HTML.
+   The song starts after the visitor interacts with the first button.
+   It is also available through the floating music button. */
+let musicOn = false;
+let musicStarted = false;
+
+function startMusic(){
+  const audio = document.getElementById('music');
+
+  if (!musicStarted) {
+    audio.volume = 0.65;
+    const playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        musicOn = true;
+        musicStarted = true;
+        document.getElementById('musicBtn').textContent = '❚❚';
+      }).catch(() => {
+        // Browser blocked playback; the music button can still start it.
+      });
+    }
+  }
+}
+
+function toggleMusic(){
+  const audio = document.getElementById('music');
+
+  if (musicOn) {
+    audio.pause();
+    musicOn = false;
+    document.getElementById('musicBtn').textContent = '♫';
+  } else {
+    audio.volume = 0.65;
+    audio.play().then(() => {
+      musicOn = true;
+      musicStarted = true;
+      document.getElementById('musicBtn').textContent = '❚❚';
+    }).catch(() => {
+      alert('Make sure Birthday.mp3 is in the same folder as this HTML file.');
+    });
+  }
+}
+</script>
+</body>
+</html>
