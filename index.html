@@ -140,7 +140,7 @@ p{font-size:clamp(1rem,2.5vw,1.25rem);line-height:1.7}
     <p>Shhhh... suspense is part of the surprise 🤫</p>
     <div class="progress"><span id="bar"></span></div>
     <div class="countdown" id="count">3</div>
-    <p style="color:#ff86ba;font-weight:700">GET READY ZEHAAAK...</p>
+    <p style="color:#ff86ba;font-weight:700">GET READY ZEHAKKK...</p>
   </div>
 </section>
 
@@ -190,8 +190,7 @@ p{font-size:clamp(1rem,2.5vw,1.25rem);line-height:1.7}
       <p style="margin-top:15px;text-align:center;font-size:1.2rem"><strong>today, you're officially allowed to be extra. 🎀😌</strong></p>
     </div>
     <div class="stickers">🎂 🎈 💕 ✨ 🥳 🧸</div>
-    <p class="footer">Made with lots of love, just for Zehak</p>
-    <p class="footer">I Love You Zehak 💝</p>
+    <p class="footer">❣️ I love You Zehak ❣️ </p>
     <button class="btn" onclick="location.reload()">Replay the surprise 🔄</button>
   </div>
 </section>
@@ -203,7 +202,7 @@ p{font-size:clamp(1rem,2.5vw,1.25rem);line-height:1.7}
 const screens=[...document.querySelectorAll('.screen')];
 let current=1;
 const floaters=document.getElementById('floaters');
-const symbols=['♡','♥','✦','✧','💛','🩵','✨','🌹','🩷','🖤','🎈','🌻','⭐'];
+const symbols=['💛','🩵','✨','🌹','🩷','🖤','🎈','🌹','⭐','♡','♥','✦','✧','💛','🩵','✨','🌹','🩷','🖤','🎈','🌹','⭐'];
 
 for(let i=0;i<28;i++){
   const el=document.createElement('span');
@@ -254,7 +253,7 @@ function confetti(amount){
   for(let i=0;i<amount;i++){
     const c=document.createElement('span');
     c.className='confetti';
-    c.textContent=['💗','✨','🎉','🎀','💕','⭐','🌸'][Math.floor(Math.random()*7)];
+    c.textContent=['💗','✨','🎉','🎀','💕','⭐','🌹','🎈'][Math.floor(Math.random()*7)];
     c.style.left=Math.random()*100+'vw';
     c.style.fontSize=(12+Math.random()*20)+'px';
     c.style.animationDuration=(2+Math.random()*3)+'s';
